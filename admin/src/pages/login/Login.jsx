@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 // import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
+import { API_URL } from "../../api";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -23,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", credentials);
+      const res = await API_URL.post("/auth/login", credentials);
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: {...res.data.details,isAdmin:res.data.isAdmin} });
 
