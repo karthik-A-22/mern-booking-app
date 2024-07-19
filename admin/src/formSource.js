@@ -15,7 +15,7 @@ export const userInputs = [
     id: "phone",
     label: "Phone",
     type: "text",
-    placeholder: "+1 234 567 89",
+    placeholder: "+91 8888888888",
   },
   {
     id: "password",
@@ -26,13 +26,13 @@ export const userInputs = [
     id: "country",
     label: "Country",
     type: "text",
-    placeholder: "USA",
+    placeholder: "INDIA",
   },
   {
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "USA",
+    placeholder: "BANGALORE",
   },
 ];
 
