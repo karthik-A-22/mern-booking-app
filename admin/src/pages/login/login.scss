@@ -1,32 +1,103 @@
+/* login.scss */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 .login {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #6a1b9a, #ffffff); /* Purple and white gradient */
+  font-family: 'Roboto', sans-serif;
 }
 
 .lContainer {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 1rem;
+  text-align: center;
 }
 
-.lInput{
-  height: 30px;
-  padding: 10px;
+.lInput {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.lInput:focus {
+  outline: none;
+  border-color: #6a1b9a; /* Purple border on focus */
+  box-shadow: 0 0 0 2px rgba(106, 27, 154, 0.2); /* Purple focus shadow */
 }
 
 .lButton {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #6a1b9a; /* Purple button */
+  color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  background-color: #0071c2;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
   border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.lButton:disabled{
-  background-color: #0071c28c;
+.lButton:hover {
+  background-color: #4a148c; /* Darker purple on hover */
+}
+
+.lButton:disabled {
+  background-color: #9ca3af;
   cursor: not-allowed;
+}
+
+.lTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.errorMessage {
+  margin-top: 1rem;
+  color: #dc2626;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .lContainer {
+    padding: 1rem;
+  }
+
+  .lTitle {
+    font-size: 1.5rem;
+  }
+
+  .lInput {
+    padding: 0.75rem;
+  }
+
+  .lButton {
+    padding: 0.75rem;
+  }
 }

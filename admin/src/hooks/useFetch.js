@@ -10,7 +10,7 @@ const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = API_URL.get(`${API_URL}` + url,{ withCredentials: true });
+        const res = await API_URL.get(url);
         setData(res.data);
       } catch (err) {
         setError(err);
@@ -23,7 +23,7 @@ const useFetch = (url) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = API_URL.get(`${API_URL}` + url,{ withCredentials: true });
+      const res = await API_URL.get(url);
       setData(res.data);
     } catch (err) {
       setError(err);

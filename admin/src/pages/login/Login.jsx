@@ -2,18 +2,16 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-// import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
 import { API_URL } from "../../api";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    username: undefined,
-    password: undefined,
+    username: "",
+    password: "",
   });
 
   const { loading, error, dispatch } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,8 +24,10 @@ const Login = () => {
     try {
       const res = await API_URL.post("/auth/login", credentials);
       if (res.data.isAdmin) {
-        dispatch({ type: "LOGIN_SUCCESS", payload: {...res.data.details,isAdmin:res.data.isAdmin} });
-
+        dispatch({
+          type: "LOGIN_SUCCESS",
+          payload: { ...res.data.details, isAdmin: res.data.isAdmin },
+        });
         navigate("/");
       } else {
         dispatch({
@@ -43,24 +43,26 @@ const Login = () => {
   return (
     <div className="login">
       <div className="lContainer">
+        <img src="/admin.png" alt="Logo" className="logo" />
+        <h2 className="lTitle">Admin Login</h2>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Username"
           id="username"
           onChange={handleChange}
           className="lInput"
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           id="password"
           onChange={handleChange}
           className="lInput"
         />
         <button disabled={loading} onClick={handleClick} className="lButton">
-          Login
+          {loading ? "Loading..." : "Login"}
         </button>
-        {error && <span>{error.message}</span>}
+        {error && <span className="errorMessage">{error.message}</span>}
       </div>
     </div>
   );
