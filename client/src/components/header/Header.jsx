@@ -33,7 +33,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
-
+  const [activeItem, setActiveItem] = useState("Stays"); // Added state for active item
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
@@ -54,6 +54,11 @@ const Header = ({ type }) => {
     navigate("/hotels", { state: { destination, dates, options } });
   };
 
+  const handleItemClick = (item) => {
+    setActiveItem(item); // Update active item
+    // Navigate or perform other actions based on item click if needed
+  };
+
   return (
     <div className="header">
       <div
@@ -62,23 +67,28 @@ const Header = ({ type }) => {
         }
       >
         <div className="headerList">
-          <div className="headerListItem active">
+          <div className={`headerListItem ${activeItem === "Stays" ? "active" : ""}`}
+            onClick={() => handleItemClick("Stays")}>
             <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </div>
-          <div className="headerListItem">
+          <div className={`headerListItem ${activeItem === "Flights" ? "active" : ""}`}
+            onClick={() => handleItemClick("Flights")}>
             <FontAwesomeIcon icon={faPlane} />
             <span>Flights</span>
           </div>
-          <div className="headerListItem">
+          <div className={`headerListItem ${activeItem === "Car rentals" ? "active" : ""}`}
+            onClick={() => handleItemClick("Car rentals")}>
             <FontAwesomeIcon icon={faCar} />
             <span>Car rentals</span>
           </div>
-          <div className="headerListItem">
+          <div className={`headerListItem ${activeItem === "Attractions" ? "active" : ""}`}
+            onClick={() => handleItemClick("Attractions")}>
             <FontAwesomeIcon icon={faBed} />
             <span>Attractions</span>
           </div>
-          <div className="headerListItem">
+          <div className={`headerListItem ${activeItem === "Airport taxis" ? "active" : ""}`}
+            onClick={() => handleItemClick("Airport taxis")}>
             <FontAwesomeIcon icon={faTaxi} />
             <span>Airport taxis</span>
           </div>
