@@ -1,12 +1,44 @@
-.homeContainer{
+.homeContainer {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  padding: 0 20px;
+  /* Add some padding to the sides */
 }
 
-.homeTitle{
-  width: 1024px;
-  font-size: 20px;
+.homeTitle {
+  width: 100%;
+  max-width: 1024px;
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+  /* Add some vertical margin */
+}
+
+@media (max-width: 768px) {
+  .homeTitle {
+    font-size: 1.5rem;
+    /* Adjust font size for smaller screens */
+  }
+
+  .homeContainer {
+    gap: 20px;
+    /* Reduce gap for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .homeTitle {
+    font-size: 1.2rem;
+    /* Further adjust font size for very small screens */
+  }
+
+  .homeContainer {
+    margin-top: 30px;
+    /* Adjust top margin for very small screens */
+    gap: 15px;
+    /* Further reduce gap */
+  }
 }

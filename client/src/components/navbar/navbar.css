@@ -1,11 +1,11 @@
-.navbar{
+.navbar {
   height: 50px;
   background-color: #003580;
   display: flex;
   justify-content: center;
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
   max-width: 1024px;
   color: white;
@@ -14,14 +14,29 @@
   justify-content: space-between;
 }
 
-.logo{
+.logo {
   font-weight: 500;
 }
 
-.navButton{
+.navButton {
   margin-left: 20px;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   cursor: pointer;
   color: #003580;
+  background-color: #ffcc00;
+  /* Yellow background for contrast */
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  /* Rounded corners */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+}
+
+.navButton:hover {
+  background-color: #e6b800;
+  /* Slightly darker yellow for hover effect */
 }
