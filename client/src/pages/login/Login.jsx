@@ -7,13 +7,12 @@ import { API_URL } from "../../api";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    username: undefined,
-    password: undefined,
+    username: "",
+    password: "",
   });
 
   const { loading, error, dispatch } = useContext(AuthContext);
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -25,34 +24,48 @@ const Login = () => {
     try {
       const res = await API_URL.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/")
+      navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
   };
 
+  const handleBackClick = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
 
   return (
     <div className="login">
       <div className="lContainer">
+        <img src="/login.png" alt="Logo" className="logo" />
         <input
           type="text"
-          placeholder="username"
+          placeholder="Username"
           id="username"
           onChange={handleChange}
           className="lInput"
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           id="password"
           onChange={handleChange}
           className="lInput"
         />
-        <button disabled={loading} onClick={handleClick} className="lButton">
+        <button
+          disabled={loading}
+          onClick={handleClick}
+          className="lButton"
+        >
           Login
         </button>
-        {error && <span>{error.message}</span>}
+        {error && <span className="error">{error.message}</span>}
+        <button
+          onClick={handleBackClick}
+          className="backButton"
+        >
+          Back
+        </button>
       </div>
     </div>
   );

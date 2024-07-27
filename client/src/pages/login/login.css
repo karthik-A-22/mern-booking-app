@@ -3,30 +3,73 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #003366;
+  /* Dark blue background */
 }
 
 .lContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  padding: 30px;
+  background-color: #ffffff;
+  /* White background for the form */
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  /* Adjust width as needed */
 }
 
-.lInput{
-  height: 30px;
-  padding: 10px;
+.lInput {
+  height: 40px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .lButton {
   border: none;
-  padding: 10px 20px;
-  background-color: #0071c2;
+  padding: 12px;
+  background-color: #003366;
+  /* Dark blue button */
   color: white;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  width: 100%;
+  /* Full width button */
 }
 
-.lButton:disabled{
-  background-color: #0071c28c;
+.lButton:disabled {
+  background-color: #002244;
+  /* Darker blue when disabled */
   cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.backButton {
+  border: none;
+  padding: 10px;
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  /* Full width button */
+}
+
+.backButton:hover {
+  background-color: #d0d0d0;
+}
+
+.logo {
+  width: 120px;
+  /* Adjust size of the logo */
+  margin-bottom: 20px;
+  align-self: center;
 }
